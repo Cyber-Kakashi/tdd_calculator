@@ -7,22 +7,18 @@ export function calculator(equation: string): number {
 
     // validating the parsed_equation
     // Making sure we have only numeric values in the parsed_equation array
-    const validated_equation_array = parsed_equation.map(num => {
+    const validated_equation_array: number[] = parsed_equation.map(num => {
         // removing the possible whitespaces from front and end of the string
         num = num.trim()
         // using the + unary operator to convert possible string into numbers
         if (!isNaN(+num)) return +num;
-        // just returning 0 to avoid errors for now, this will be refactored later
+        // returning 0 in case not a valid number
         return 0;
     });
 
-    if (validated_equation_array.length)
-
-    if (validated_equation_array.length == 1) {
-        sum += validated_equation_array[0];
-    } else if (validated_equation_array.length == 2) {
-        sum += validated_equation_array[0] + validated_equation_array[1];
-    }
+    validated_equation_array.forEach(num => {
+        sum += num;
+    })
 
     return sum;
 }

@@ -1,6 +1,7 @@
 import { calculator } from '../src/calculator';
 
 const TEST_CASES = [
+    // STEP 1: test cases
     {
         message: 'Sum for EMPTY string',
         case: '',
@@ -36,6 +37,18 @@ const TEST_CASES = [
         case: '1,23',
         result: 24
     },
+    // STEP 2: test cases
+    {
+        message: 'Sum for a N numbers-string',
+        case: '1,2,3,4,5',
+        result: 15
+    },
+    {
+        message: 'Sum for a N numbers-string',
+        case: '1,22,134,424,5',
+        result: 586
+    },
+    // EDGE CASES: specific to TypeScript or other outliers
     {
         message: 'Sum for a two numbers-string (multi-digit, multi-digit)',
         case: '12,23',
