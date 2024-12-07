@@ -41,6 +41,21 @@ const TEST_CASES = [
         case: '12,23',
         result: 35
     },
+    {
+        message: '[EDGE CASE] non numeric values in string',
+        case: 'sdf',
+        result: 0
+    },
+    {
+        message: '[EDGE CASE] non numeric values in string. Should only consider numbers for summation',
+        case: '1,sdf',
+        result: 1
+    },
+    {
+        message: '[EDGE CASE] non numeric(spaces) values in string. Should only consider numbers for summation',
+        case: '15, 2',
+        result: 17
+    },
 ];
 
 describe('calculator function', () => {
