@@ -20,7 +20,27 @@ const TEST_CASES = [
         message: 'Sum for a single number-string (multiple digit (3))',
         case: '123',
         result: 123
-    }
+    },
+    {
+        message: 'Sum for a two numbers-string',
+        case: '1,2',
+        result: 3
+    },
+    {
+        message: 'Sum for a two numbers-string (single-digit, multi-digit)',
+        case: '1,12',
+        result: 13
+    },
+    {
+        message: 'Sum for a two numbers-string (multi-digit, single-digit)',
+        case: '1,23',
+        result: 24
+    },
+    {
+        message: 'Sum for a two numbers-string (multi-digit, multi-digit)',
+        case: '12,23',
+        result: 35
+    },
 ];
 
 describe('calculator function', () => {
