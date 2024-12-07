@@ -1,7 +1,7 @@
 import { calculator } from '../src/calculator';
 
-describe('sum function', () => {
-  it('should return the sum of two numbers', () => {
+describe('calculator function', () => {
+  it('Sum for EMPTY string', () => {
     expect(calculator('')).toBe(0);
   });
 });
