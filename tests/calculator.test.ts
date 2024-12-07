@@ -1,20 +1,32 @@
 import { calculator } from '../src/calculator';
 
+const TEST_CASES = [
+    {
+        message: 'Sum for EMPTY string',
+        case: '',
+        result: 0
+    },
+    {
+        message: 'Sum for a single number-string',
+        case: '1',
+        result: 1
+    },
+    {
+        message: 'Sum for a single number-string (multiple digit (2))',
+        case: '12',
+        result: 12
+    },
+    {
+        message: 'Sum for a single number-string (multiple digit (3))',
+        case: '123',
+        result: 123
+    }
+];
+
 describe('calculator function', () => {
-  it('Sum for EMPTY string', () => {
-    expect(calculator('')).toBe(0);
-  });
-
-  it('Sum for a single number string', () => {
-    expect(calculator('1')).toBe(1);
-  });
-
-  it('Sum for a single number (multiple digit (2)) string', () => {
-    expect(calculator('12')).toBe(12);
-  });
-
-
-  it('Sum for a single number (multiple digit (3)) string', () => {
-    expect(calculator('123')).toBe(123);
-  });
+    TEST_CASES.forEach(t => {
+        it(t.message, () => {
+          expect(calculator(t.case)).toBe(t.result);
+        });
+    });
 });
