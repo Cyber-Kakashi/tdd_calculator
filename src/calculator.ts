@@ -1,3 +1,5 @@
+"use strict";
+
 export function calculator(equation: string): number {
     const delimiterRegex = /^\/\/([^\\n]+)\n/;
     const negativeNumbers: number[] = [];
@@ -24,7 +26,7 @@ export function calculator(equation: string): number {
         // removing the possible whitespaces from front and end of the string
         num = num.trim();
         // using the + unary operator to convert possible string into numbers
-        if (!isNaN(+num)) {
+        if (!isNaN(+num) && (+num <= 1000)) {
             //handling negative numbers
             if (+num < 0) {
                 negativeNumbers.push(+num);

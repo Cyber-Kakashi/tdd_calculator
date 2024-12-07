@@ -101,6 +101,32 @@ const TEST_CASES = [
         case: '//;\n12;-2',
         error: 'Negative numbers not allowed. Found: [-2]'
     },
+    // STEP 6: Do NOT allow number above 1000 to be summed
+    {
+        message: 'Do NOT allow number above 1000',
+        case: '1, 1000',
+        result: 1001
+    },
+    {
+        message: 'Do NOT allow number above 1000',
+        case: '1,, 2, 1000',
+        result: 1003
+    },
+    {
+        message: 'Do NOT allow number above 1000',
+        case: '1, 1001',
+        result: 1
+    },
+    {
+        message: 'Do NOT allow number above 1000',
+        case: '2, 100230,3,4',
+        result: 9
+    },
+    {
+        message: 'Do NOT allow number above 1000',
+        case: '1, 999',
+        result: 1000
+    },
     // EDGE CASES: specific to TypeScript or other outliers
     {
         message: 'Sum for a two numbers-string (multi-digit, multi-digit)',
