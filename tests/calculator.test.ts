@@ -181,10 +181,10 @@ const TEST_CASES = [
         case: '1, 999',
         result: 1000
     },
-    // EDGE CASES: specific to TypeScript or other outliers
+    // EDGE CASES: specific to TypeScript or other outliers that I figured might be good to test
     {
         count: 30,
-        message: 'Sum for a two numbers-string (multi-digit, multi-digit)',
+        message: '[EDGE CASE] Sum for a two numbers-string (multi-digit, multi-digit)',
         case: '12,23',
         result: 35
     },
@@ -205,6 +205,24 @@ const TEST_CASES = [
         message: '[EDGE CASE] non numeric(spaces) values in string. Should only consider numbers for summation',
         case: '15, 2',
         result: 17
+    },
+    {
+        count: 34,
+        message: '[EDGE CASE] Miscellaneous',
+        case: '//[@@**][;]\n1;22@@**134;424;5;10004',
+        result: 586
+    },
+    {
+        count: 35,
+        message: '[EDGE CASE] Miscellaneous',
+        case: '//[@@**][;]\n1;22@@**134;424;5;2003',
+        result: 586
+    },
+    {
+        count: 36,
+        message: '[EDGE CASE] Miscellaneous',
+        case: '//[@@**][;]\n1;22@@**134;424;5',
+        result: 586
     },
 ];
 
