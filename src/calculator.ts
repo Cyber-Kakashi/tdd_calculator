@@ -14,13 +14,9 @@ export function calculator(equation: string): number {
             const specialCharacters = /[.*+?^=!:${}()|\[\]\/\\]/g;
             delimiters = delimiters.map(item => item.replace(specialCharacters, '\\$&'));
             delimiterRegex = new RegExp(delimiters.join('|'), 'g');
-            console.log('delimiters: ', delimiterRegex);
-            equation = equation.replace(delimiterRegex, defaultDelimiter)
-            console.log('equations: ', equation);
-    
+            equation = equation.replace(delimiterRegex, defaultDelimiter)    
         } catch (e) {}
     }
-
 
     // handling the '\n' in the equation string
     // replacing '\n' with ',' so that it is used as a delimiter
@@ -31,7 +27,7 @@ export function calculator(equation: string): number {
 
     // validating the parsed_equation
     // Making sure we have only numeric values in the parsed_equation array
-    const validated_equation_array: number[] = parsed_equation.map(num => {
+    parsed_equation.forEach(num => {
         // removing the possible whitespaces from front and end of the string
         num = num.trim();
         // using the + unary operator to convert possible string into numbers
@@ -40,7 +36,7 @@ export function calculator(equation: string): number {
             if (+num < 0) {
                 negativeNumbers.push(+num);
             }
-            return +num;
+            sum += +num;
         }
         // returning 0 in case not a valid number
         return 0;
@@ -50,10 +46,6 @@ export function calculator(equation: string): number {
     if (negativeNumbers.length) {
         throw new Error(`Negative numbers not allowed. Found: [${negativeNumbers.join(',')}]`);
     }
-
-    validated_equation_array.forEach(num => {
-        sum += num;
-    })
 
     return sum;
 }
