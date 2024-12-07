@@ -75,6 +75,32 @@ const TEST_CASES = [
         case: '// \n1 22 134 424 5',
         result: 586
     },
+    // STEP 5: Do NOTE allow negative numbers
+    {
+        message: 'Do not allow negative numbers',
+        case: '-1',
+        error: 'Negative numbers not allowed. Found: [-1]'
+    },
+    {
+        message: 'Do not allow negative numbers',
+        case: '12,-2',
+        error: 'Negative numbers not allowed. Found: [-2]'
+    },
+    {
+        message: 'Do not allow negative numbers',
+        case: '-3,-2',
+        error: 'Negative numbers not allowed. Found: [-3,-2]'
+    },
+    {
+        message: 'Do not allow negative numbers',
+        case: '-2,-3,-5,-2',
+        error: 'Negative numbers not allowed. Found: [-2,-3,-5,-2]'
+    },
+    {
+        message: 'Do not allow negative numbers',
+        case: '//;\n12;-2',
+        error: 'Negative numbers not allowed. Found: [-2]'
+    },
     // EDGE CASES: specific to TypeScript or other outliers
     {
         message: 'Sum for a two numbers-string (multi-digit, multi-digit)',
@@ -101,7 +127,11 @@ const TEST_CASES = [
 describe('calculator function', () => {
     TEST_CASES.forEach(t => {
         it(t.message, () => {
-          expect(calculator(t.case)).toBe(t.result);
+            if (t.error) {
+                expect(() => calculator(t.case)).toThrow(t.error);
+            } else {
+                expect(calculator(t.case)).toBe(t.result);
+            }
         });
     });
 });
