@@ -64,6 +64,17 @@ const TEST_CASES = [
         case: '1,22\n134,424\n\n\n\n\n,5',
         result: 586
     },
+    // STEP 4: Allow custom delimiters
+    {
+        message: '//;\\nAllow \\n instead of commas',
+        case: '//;\n1;22;134;424;5',
+        result: 586
+    },
+    {
+        message: '// \\nAllow \\n instead of commas',
+        case: '// \n1 22 134 424 5',
+        result: 586
+    },
     // EDGE CASES: specific to TypeScript or other outliers
     {
         message: 'Sum for a two numbers-string (multi-digit, multi-digit)',
