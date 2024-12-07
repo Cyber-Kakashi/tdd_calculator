@@ -48,6 +48,22 @@ const TEST_CASES = [
         case: '1,22,134,424,5',
         result: 586
     },
+    // STEP 3: test cases
+    {
+        message: 'Allow \\n instead of commas',
+        case: '1,22\n134,424,5',
+        result: 586
+    },
+    {
+        message: 'Allow consecutive \\n instead of commas',
+        case: '1,22\n134,\n\n424,5',
+        result: 586
+    },
+    {
+        message: 'Allow multiple consecutive \\n instead of commas',
+        case: '1,22\n134,424\n\n\n\n\n,5',
+        result: 586
+    },
     // EDGE CASES: specific to TypeScript or other outliers
     {
         message: 'Sum for a two numbers-string (multi-digit, multi-digit)',

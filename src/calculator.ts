@@ -2,6 +2,10 @@ export function calculator(equation: string): number {
     let sum = 0;
     if (!equation.length) return sum;
 
+    // handling the '\n' in the equation string
+    // replacing '\n' with ',' so that it is used as a delimiter
+    equation = equation.replace('\n', ',')
+
     // assuming the ',' delimiter for now
     const parsed_equation = equation.split(',');
 
